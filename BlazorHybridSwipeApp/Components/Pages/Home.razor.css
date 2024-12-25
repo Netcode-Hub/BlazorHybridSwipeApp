@@ -1,0 +1,63 @@
+﻿.swipe-container{
+    position: absolute;
+    width: 100%;
+    left:0;
+    right:0;
+    margin:5px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.swipe-item{
+    padding: 20px;
+    background-color: lightblue;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.action-buttons{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    z-index: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+}
+
+.action-buttons.visible{
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+.delete-button, .cancel-button{
+    background-color: red;
+    color: white;
+    border:none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cancel-button{
+    background-color: gray;
+}
+.delete-button-color{
+    background-color: darkred;
+}
+.cancel-button:hover{
+    background-color: darkgray;
+}

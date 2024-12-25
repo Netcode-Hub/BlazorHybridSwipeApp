@@ -1,0 +1,33 @@
+﻿@page "/"
+@inject IJSRuntime js
+
+<div id="swipe-container" class="swipe-container">
+    <div id="swipe-item" class="swipe-item">
+        Swipe me to left
+    </div>
+    <div id="action-buttons" class="action-buttons">
+        <button id="delete-button" class="delete-button" @onclick="DeleteItem">Delete</button>
+        <button id="cancel-button" class="cancel-button" @onclick="CancelItem">Cancel</button>
+    </div>
+</div>
+
+@code{
+    void DeleteItem()
+    {
+
+    }
+
+    async Task CancelItem()
+    {
+        await js.InvokeVoidAsync("restoreSwipe", "swipe-item", "action-buttons");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await js.InvokeVoidAsync("addSwipeHandler", "swipe-item", "action-buttons");
+        }
+    }
+}
+
